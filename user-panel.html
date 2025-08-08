@@ -3373,7 +3373,291 @@
            }
        }
 
-               /* Profile Page Styles */
+        /* Enhanced Profile Page Styles */
+        .profile-main-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 0;
+            margin-bottom: 24px;
+            backdrop-filter: blur(30px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .profile-header {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .avatar-circle {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00d4aa 0%, #00a87a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 16px;
+            height: 16px;
+            background: #10b981;
+            border: 3px solid #1a1f2e;
+            border-radius: 50%;
+        }
+
+        .completion-bar {
+            width: 120px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .completion-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4aa, #10b981);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .completion-text {
+            font-size: 12px;
+            color: #8b8fa3;
+            text-align: center;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .member-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .profile-stats-mini {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-stats-mini span {
+            font-size: 14px;
+            color: #8b8fa3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edit-profile-btn {
+            background: linear-gradient(135deg, #00d4aa 0%, #00a87a 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .edit-profile-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
+        /* Profile Edit Modal */
+        .profile-edit-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-edit-modal.show {
+            opacity: 1;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .modal-container {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2a2f3e 100%);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            z-index: 10001;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .profile-edit-modal.show .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #8896ab;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4aa;
+            box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .save-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00d4aa 0%, #00a87a 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
         .profile-info-card, .balance-card {
             background: linear-gradient(135deg, #1e2530 0%, #2a3441 100%);
             border: 1px solid #2a2f3e;
@@ -3501,6 +3785,158 @@
 
         .transaction-amount.negative {
             color: #ff4757;
+        }
+
+        /* Mobile Responsive for Profile */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            .profile-avatar {
+                width: 60px;
+                height: 60px;
+            }
+
+            .avatar-circle {
+                font-size: 24px;
+            }
+
+            .profile-info h2 {
+                font-size: 20px;
+            }
+
+            .profile-stats-mini {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .profile-stats-mini span {
+                font-size: 12px;
+            }
+
+            .edit-profile-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            .modal-container {
+                max-width: 95%;
+                margin: 0 10px;
+            }
+
+            .modal-header {
+                padding: 20px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px 14px;
+                font-size: 16px;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .stat-card {
+                padding: 16px;
+                gap: 12px;
+            }
+
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .completion-bar {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-header {
+                padding: 16px;
+            }
+
+            .profile-avatar {
+                width: 50px;
+                height: 50px;
+            }
+
+            .avatar-circle {
+                font-size: 20px;
+            }
+
+            .profile-info h2 {
+                font-size: 18px;
+            }
+
+            .member-badge {
+                font-size: 11px;
+                padding: 3px 10px;
+            }
+
+            .profile-stats-mini {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .edit-profile-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .modal-container {
+                border-radius: 16px;
+                max-height: 95vh;
+            }
+
+            .modal-header h3 {
+                font-size: 18px;
+            }
+
+            .stat-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.3rem;
+            }
+
+            .completion-bar {
+                width: 80px;
+                height: 4px;
+            }
+
+            .completion-text {
+                font-size: 11px;
+            }
         }
 
         /* Extra Small Mobile Devices */
@@ -8139,6 +8575,38 @@
                     <div class="section-header">
                         <h2 class="section-title">Profil</h2>
                         <p class="section-subtitle">Hesap bilgileri ve işlem geçmişi</p>
+                    </div>
+                    
+                    <!-- Profil Kartı -->
+                    <div class="card profile-main-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar-section">
+                                <div class="profile-avatar">
+                                    <div class="avatar-circle" id="userAvatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="status-indicator online"></div>
+                                </div>
+                                <div class="profile-completion">
+                                    <div class="completion-bar">
+                                        <div class="completion-progress" style="width: 75%"></div>
+                                    </div>
+                                    <span class="completion-text">Profil %75 tamamlandı</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h2 id="profileUserName">Kullanıcı Adı</h2>
+                                <span class="member-badge">Standart Üye</span>
+                                <div class="profile-stats-mini">
+                                    <span><i class="fas fa-calendar"></i> <span id="memberDuration">3 ay</span> üye</span>
+                                    <span><i class="fas fa-chart-line"></i> <span id="totalTradesCount">45</span> işlem</span>
+                                </div>
+                            </div>
+                            <button class="edit-profile-btn" onclick="openProfileEditModal()">
+                                <i class="fas fa-edit"></i>
+                                <span>Düzenle</span>
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="grid grid-2">
